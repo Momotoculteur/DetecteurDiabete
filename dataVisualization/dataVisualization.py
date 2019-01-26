@@ -40,8 +40,20 @@ def pairPlot(data):
     :return:
     '''
     sns.pairplot(data, hue='Outcome', diag_kind='kde')
-    plt.savefig('Pair plot')
-    
+    #plt.savefig('Pair plot')
+    plt.show()
+
+def correlationMatrix(data):
+    '''
+    Constuit la matrice de correlation entre nos 7 attributs
+    :param data: dataset
+    :return:
+    '''
+    sns.heatmap(data.iloc[:,0:8].corr(), annot=True, cmap='Blues')
+    #plt.tight_layout()
+    #plt.savefig('Matrice de correlation')
+
+    plt.show()
 
 def main():
     '''
@@ -55,8 +67,9 @@ def main():
     # 2nd arg : all, 0, 1
     #plotAllGraphByType(data, 'all')
 
-    pairPlot(data)
+    #pairPlot(data)
 
+    correlationMatrix(data)
 
 
 if __name__== "__main__":
